@@ -1,7 +1,27 @@
-
 <div class="mdl-grid portfolio-max-width">
     <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop  mdl-card mdl-shadow--4dp">
-        <h1>Home page</h1>
-        <span id="googleSignIn" ng-show="!signedIn"><span id="signInButton"></span></span>
+        <h3 class="mdl-typography--text-center">Google mailer box</h3>
+        <span id="googleSignIn" ng-hide="signedIn"><span id="signInButton"></span></span>
+        <div class="snippet-demo mdl-typography--text-center">
+            <button ng-click="getUserInfo()" ng-show="signedIn"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Sign Out
+            </button>
+        </div>
+        <ul class="demo-list-three mdl-list" ng-repeat="mail in mailList">
+            <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>{{mail.id}} </span>
+                  <span class="mdl-list__item-text-body">
+                    {{mail.snippet}}
+                  </span>
+                </span>
+            </li>
+        </ul>
     </div>
 </div>
+
+
+
+
+
