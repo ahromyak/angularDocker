@@ -50,18 +50,6 @@ var sourceCssDest = 'assets/css/source.css';
 var jsDest = 'assets/js/app.js';
 var sourceJsDest = 'assets/js/lib.js';
 
-gulp.task('protractor', function () {
-    gulp.src(['/tests/*.js'])
-        .pipe(angularProtractor({
-            'configFile': 'protractor.config.js',
-            'autoStartStopServer': true,
-            'debug': false
-        }))
-        .on('error', function (e) {
-            throw e;
-        })
-});
-
 gulp.task('source-concat', function () {
     return gulp.src(source.sourceJs)
         .pipe(newer(sourceJsDest))
