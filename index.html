@@ -2,37 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dengo Systems</title>
+    <title>Google Mailer</title>
     <link href="assets/css/source.css" rel="stylesheet" media="all">
     <link href="assets/css/app.css" rel="stylesheet" media="all">
     <base href="/">
 </head>
 <body ng-app="myApp">
 <div ng-controller="mainController">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer ">
-        <div class="mdl-layout__drawer nav-bar--gradient">
-            <p></p>
-            <span class="mdl-layout-title"><img src="assets/images/Dengo-Logo.png"></span>
-            <nav class="mdl-navigation">
-                <p></p>
-                <a class="mdl-navigation__link dng-hide" ui-sref="home"><b>All projects</b></a>
-                <div class="accordion mdl-navigation__link">Backend</div>
-                <div class="panel">
-                    <a class="mdl-navigation__link" ui-sref="backend.codeigniter"><b>Codeigniter</b></a>
-                    <a class="mdl-navigation__link" ui-sref="frontend"><b>Zwig</b></a>
-                    <a class="mdl-navigation__link" ui-sref="cms"><b>Zend</b></a>
-                    <a class="mdl-navigation__link" ui-sref="java"><b>Java</b></a>
-                </div>
-                <a class="mdl-navigation__link dng-hide" ui-sref="mobile"><b>Mobile</b></a>
-                <a class="mdl-navigation__link dng-hide" ui-sref="frontend"><b>Frontend</b></a>
-                <a class="mdl-navigation__link dng-hide" ui-sref="cms"><b>CMS</b></a>
-                <a class="mdl-navigation__link dng-hide" ui-sref="design"><b>Design</b></a>
-            </nav>
-            <div class="mdl-mega-footer dng-footer">
-                <div><p>Are you interested? Move to our site.</p></div>
-                <div><p >Dengo-systems.com</p></div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="custom-header mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Menu</a>
+                    <a class="mdl-navigation__link" href="">Angular Inbox</a>
+                </nav>
             </div>
-        </div>
+        </header>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div ui-view></div>
@@ -40,8 +25,24 @@
         </main>
     </div>
 </div>
+<script>// <![CDATA[
+(function () {
+    var po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+})();
+// ]]></script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 <script src="assets/js/lib.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/template.min.js"></script>
 </body>
 </html>
+
+<!--Client identifier-->
+<!--162151956695-43hfg93bbm91to2elra9n2qb2i80u1o0.apps.googleusercontent.com-->
+<!--Client secret-->
+<!--E5GYKjxRINNVuYrAVrkFWLWy-->
