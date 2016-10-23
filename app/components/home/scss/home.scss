@@ -82,3 +82,11 @@ header.custom-header {
 .mdl-modal--margin-top{
   margin-top: 45px;
 }
+.modal-dialog{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 9999;
+}
