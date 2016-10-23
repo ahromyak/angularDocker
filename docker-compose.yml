@@ -1,10 +1,9 @@
-version: '1.0.1'
-
+version: '2'
 services:
-
-  deosgit:
+  web:
     image: eboraas/apache
     volumes:
-      - .:/var/www/html/
+      - .:/var/www/html//
+      - c:\Users\docker:/var/www/html/
     ports:
       - 80:80
