@@ -29,7 +29,7 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
     $scope.renderSignInButton = function () {
         gapiFactory.signIn($scope.signInCallback);
     };
-    // Start function in this example only renders the sign in button.
+    // Start function renders the sign in button.
     $scope.start = function () {
         $scope.renderSignInButton();
     };
