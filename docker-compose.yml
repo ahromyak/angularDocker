@@ -1,10 +1,10 @@
-version: '0.0.1'
+version: '1.0.1'
 
 services:
 
   deosgit:
     image: eboraas/apache
     volumes:
-      - c:\Openserver\domains\angularDocker:/var/www/html/
+      - .:/var/www/html/
     ports:
-      - 7777:80
+      - 8080:80
