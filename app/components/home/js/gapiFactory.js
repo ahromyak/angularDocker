@@ -5,19 +5,43 @@
 cjs.factory('gapiFactory', function ($q) {
     var request;
 
+    //Loads first 20 emails list
     function _loadEmails() {
         var deferred = $q.defer();
         gapi.client.load('gmail', 'v1', function () {
-            request = gapi.client.gmail.users.threads.list({
-                'userId': 'me'
+            // request = gapi.client.gmail.users.threads.list({
+            //     'userId': 'me'
+            // });
+            request = gapi.client.gmail.users.messages.list({
+                'userId': 'me',
+                'maxResults': 20
             });
             request.execute(function (resp) {
-                deferred.resolve(resp.threads);console.log(resp.threads);
+                deferred.resolve(resp.messages);
             });
         });
+
         return deferred.promise;
     }
 
+    //Returns single email snippet
+    function _loadSingleEmail(threadId){
+        var deferred = $q.defer();
+        gapi.client.load('gmail', 'v1', function () {
+            request = gapi.client.gmail.users.threads.get({
+                'userId': 'me',
+                'id':threadId
+            });
+
+            request.execute(function (resp) {
+                deferred.resolve(resp.messages[0]);console.log(resp);
+            });
+        });
+
+        return deferred.promise;
+    }
+
+    //Sign In function
     function _signIn(signInCallback) {
         gapi.signin.render('signInButton',
             {
@@ -32,6 +56,7 @@ cjs.factory('gapiFactory', function ($q) {
 
     return {
         signIn: _signIn,
-        loadEmails: _loadEmails
+        loadEmails: _loadEmails,
+        loadSingleEmail:_loadSingleEmail
     }
 });

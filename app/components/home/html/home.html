@@ -8,12 +8,13 @@
             </button>
         </div>
         <ul class="demo-list-three mdl-list" ng-repeat="mail in mailList">
-            <li class="mdl-list__item mdl-list__item--three-line cursor" ng-click="toggleModal(mail.snippet);">
+            <li class="mdl-list__item mdl-list__item--three-line cursor" ng-click="toggleModal(mail.threadId);">
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons mdl-list__item-avatar">e</i>
                   <span>{{mail.id}} </span>
                   <span class="mdl-list__item-text-body">
-                    {{mail.snippet}}
+                    {{mail.threadId}}
+                    <!--{{mail.snippet}}-->
                   </span>
                 </span>
             </li>

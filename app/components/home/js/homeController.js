@@ -44,7 +44,11 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
     $scope.modalShown = false;
     // Toggle modal window
     $scope.toggleModal = function (itemData) {
-        $scope.itemData = itemData;
+        var promiseSingleEmail;
+        promiseSingleEmail = gapiFactory.loadSingleEmail(itemData);
+        promiseSingleEmail.then(function(data){
+            $scope.itemData = data.snippet;
+        });
         $scope.modalShown = !$scope.modalShown;
     };
 });
