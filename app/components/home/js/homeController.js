@@ -39,4 +39,12 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
     };
 
     $timeout( function(){ $scope.start(); }, 1000);
+
+    //Modal dialog window settings
+    $scope.modalShown = false;
+    // Toggle modal window
+    $scope.toggleModal = function (itemData) {
+        $scope.itemData = itemData;
+        $scope.modalShown = !$scope.modalShown;
+    };
 });

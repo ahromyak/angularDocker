@@ -12,7 +12,7 @@ cjs.factory('gapiFactory', function ($q) {
                 'userId': 'me'
             });
             request.execute(function (resp) {
-                deferred.resolve(resp.threads);
+                deferred.resolve(resp.threads);console.log(resp.threads);
             });
         });
         return deferred.promise;
