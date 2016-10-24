@@ -4,4 +4,7 @@
 var cjs = angular.module('myApp', ['ui.router']);
 
 cjs.controller('mainController', function ($scope) {
+    $scope.loadMoreRecords = function(){
+        $scope.$broadcast('loadMoreEmails',20)
+    }
 });

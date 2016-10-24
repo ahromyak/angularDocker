@@ -24,7 +24,8 @@ var source = {
     js:[
         'main.js',
         'app/components/routes.app.js',
-        'app/**/**/js/*.js'
+        'app/**/js/*.js',
+        'app/**/directives/*.js'
     ],
     sourceCss:[
     'node_modules/material-design-lite/material.min.css',

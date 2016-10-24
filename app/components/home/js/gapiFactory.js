@@ -6,7 +6,7 @@ cjs.factory('gapiFactory', function ($q) {
     var request;
 
     //Loads first 20 emails list
-    function _loadEmails() {
+    function _loadEmails(count) {
         var deferred = $q.defer();
         gapi.client.load('gmail', 'v1', function () {
             // request = gapi.client.gmail.users.threads.list({
@@ -14,7 +14,7 @@ cjs.factory('gapiFactory', function ($q) {
             // });
             request = gapi.client.gmail.users.messages.list({
                 'userId': 'me',
-                'maxResults': 20
+                'maxResults': count
             });
             request.execute(function (resp) {
                 deferred.resolve(resp.messages);

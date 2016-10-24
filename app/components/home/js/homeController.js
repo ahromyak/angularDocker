@@ -20,7 +20,7 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
             $scope.processAuth(authResult);
         });
         //Retreive emails
-        promiseEmails = gapiFactory.loadEmails();
+        promiseEmails = gapiFactory.loadEmails(20);
         promiseEmails.then(function(data){
                 $scope.mailList = data;
         });
@@ -51,4 +51,8 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
         });
         $scope.modalShown = !$scope.modalShown;
     };
+
+    $scope.$on('loadMoreEmails',function (count){
+        // console.log(count);
+    });
 });
