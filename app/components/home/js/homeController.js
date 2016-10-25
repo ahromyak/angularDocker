@@ -1,4 +1,5 @@
 cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
+    var emailCount = 20;
     // This flag we use to show or hide the button in our HTML.
     $scope.signedIn = false;
 
@@ -20,9 +21,9 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
             $scope.processAuth(authResult);
         });
         //Retreive emails
-        promiseEmails = gapiFactory.loadEmails(20);
-        promiseEmails.then(function(data){
-                $scope.mailList = data;
+        promiseEmails = gapiFactory.loadEmails(emailCount);
+        promiseEmails.then(function (data) {
+            $scope.mailList = data;
         });
     };
     // Render the sign in button.
@@ -34,11 +35,13 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
         $scope.renderSignInButton();
     };
 
-    $scope.signOut = function(){
+    $scope.signOut = function () {
         gapi.auth.signOut();
     };
 
-    $timeout( function(){ $scope.start(); }, 1000);
+    $timeout(function () {
+        $scope.start();
+    }, 1000);
 
     //Modal dialog window settings
     $scope.modalShown = false;
@@ -46,13 +49,20 @@ cjs.controller('homeController', function ($scope, $timeout, gapiFactory) {
     $scope.toggleModal = function (itemData) {
         var promiseSingleEmail;
         promiseSingleEmail = gapiFactory.loadSingleEmail(itemData);
-        promiseSingleEmail.then(function(data){
+        promiseSingleEmail.then(function (data) {
             $scope.itemData = data.snippet;
         });
         $scope.modalShown = !$scope.modalShown;
     };
 
-    $scope.$on('loadMoreEmails',function (count){
-        // console.log(count);
+    //Should be rewritten to send arrayFrom and arrayTo to google Api to send correct array
+    $scope.$on('loadMoreEmails', function () {
+        var promiseEmails;
+        emailCount += 20;
+        promiseEmails = gapiFactory.loadEmails(emailCount);
+        promiseEmails.then(function (data) {
+            $scope.mailList=data;
+        });
+
     });
 });

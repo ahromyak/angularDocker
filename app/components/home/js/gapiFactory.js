@@ -9,9 +9,6 @@ cjs.factory('gapiFactory', function ($q) {
     function _loadEmails(count) {
         var deferred = $q.defer();
         gapi.client.load('gmail', 'v1', function () {
-            // request = gapi.client.gmail.users.threads.list({
-            //     'userId': 'me'
-            // });
             request = gapi.client.gmail.users.messages.list({
                 'userId': 'me',
                 'maxResults': count
